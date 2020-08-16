@@ -6,7 +6,8 @@ document.getElementsByTagName('input').file.onchange = function(event) {
         const request = new XMLHttpRequest
         request.upload.onprogress = function (event) {
             const progress = document.getElementById( 'progress' );
-            progress.value = (event.loaded / event.total).toFixed(1);
+            progress.value = (event.loaded / event.total).toFixed(3);
+            // console.log('ProgressBar: ' + progress.value);
         };
         request.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php');
         request.send(file);
